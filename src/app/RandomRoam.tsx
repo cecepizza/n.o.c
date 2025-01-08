@@ -13,17 +13,24 @@ class Roamer {
   y: number;
 
   draw() {
-    this.p5.stroke(0);
-    this.p5.strokeWeight(2);
-    this.p5.point(this.x, this.y);
+    this.p5.fill(this.p5.random(255), this.p5.random(255), this.p5.random(255));
+    this.p5.noStroke();
+    this.p5.ellipse(this.x, this.y, 5, 5); // Draw a small circle
   }
 
   /** eight directional movements + stay still*/
   wanderer() {
-    let xstep = this.p5.random(-1, 1);
-    let ystep = this.p5.random(-1, 1);
+    let speed = this.p5.random(1, 3); // Variable speed
+    let xstep = this.p5.random(-speed, speed);
+    let ystep = this.p5.random(-speed, speed);
     this.x += xstep;
     this.y += ystep;
+
+    // Edge wrapping
+    if (this.x > this.p5.width) this.x = 0;
+    if (this.x < 0) this.x = this.p5.width;
+    if (this.y > this.p5.height) this.y = 0;
+    if (this.y < 0) this.y = this.p5.height;
   }
 }
 

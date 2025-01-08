@@ -57,9 +57,9 @@ const ProbabilityRoam: React.FC = () => {
   let walker: Walker;
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(200, 200).parent(canvasParentRef); // canvas parent ref ensures that the canvas is rendered correctly in React
+    p5.createCanvas(500, 200).parent(canvasParentRef); // canvas parent ref ensures that the canvas is rendered correctly in React
     walker = new Walker(p5);
-    p5.background(255);
+    p5.background(247);
   };
 
   const draw = (p5: p5Types) => {
@@ -73,10 +73,18 @@ const ProbabilityRoam: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "50vh",
+        // height: "50vh",
+        // width: "100%",
       }}
     >
-      <Sketch setup={setup} draw={draw} />
+      <Sketch
+        setup={setup}
+        draw={draw}
+        style={{
+          display: "block",
+          margin: "0 auto",
+        }}
+      />
     </div>
   );
 };
