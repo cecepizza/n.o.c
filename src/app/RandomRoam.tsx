@@ -31,7 +31,7 @@ const RandomRoam: React.FC = () => {
   let roam: Roamer;
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(500, 500).parent(canvasParentRef);
+    p5.createCanvas(200, 200).parent(canvasParentRef);
     roam = new Roamer(p5);
     p5.background(255);
   };
@@ -47,7 +47,7 @@ const RandomRoam: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        // height: "100vh",
       }}
     >
       <Sketch setup={setup} draw={draw} />

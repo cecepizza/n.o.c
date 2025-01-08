@@ -6,13 +6,10 @@
 
 import React from "react";
 import Sketch from "react-p5";
-import p5Types from "p5"; // Import this for type definitions
 
 class Walker {
-  x: number;
-  y: number;
-
-  constructor(private p5: p5Types) {
+  constructor(p5) {
+    this.p5 = p5;
     this.x = p5.width / 2;
     this.y = p5.height / 2;
   }
@@ -53,16 +50,16 @@ class Walker {
   }
 }
 
-const ProbabilityRoam: React.FC = () => {
-  let walker: Walker;
+const ProbabilityRoam = () => {
+  let walker;
 
-  const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(200, 200).parent(canvasParentRef); // canvas parent ref ensures that the canvas is rendered correctly in React
+  const setup = (p5, canvasParentRef) => {
+    p5.createCanvas(500, 500).parent(canvasParentRef);
     walker = new Walker(p5);
     p5.background(255);
   };
 
-  const draw = (p5: p5Types) => {
+  const draw = (p5) => {
     walker.step();
     walker.show();
   };
@@ -73,7 +70,7 @@ const ProbabilityRoam: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "50vh",
+        // height: "100vh",
       }}
     >
       <Sketch setup={setup} draw={draw} />
@@ -81,4 +78,4 @@ const ProbabilityRoam: React.FC = () => {
   );
 };
 
-export default ProbabilityRoam;
+export default ProbabilityRoam; 

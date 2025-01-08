@@ -6,11 +6,11 @@ import ProbabilityRoam from "./ProbabilityRoam";
 
 const containerStyle: React.CSSProperties = {
   display: "flex",
-  justifyContent: "space-between",
+  //   justifyContent: "space-between",
   alignItems: "stretch",
-  height: "100vh",
-  padding: "20px",
-  boxSizing: "border-box",
+  height: "50vh",
+  padding: "5px",
+  //   boxSizing: "border-box",
   backgroundColor: "#f0f0f0",
 };
 
@@ -19,8 +19,8 @@ const cardStyle: React.CSSProperties = {
   margin: "10px",
   border: "1px solid #ddd",
   borderRadius: "12px",
-  padding: "20px",
-  boxSizing: "border-box",
+  //   padding: "10px",
+  //   boxSizing: "border-box",
   overflow: "auto",
   backgroundColor: "#fff",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
