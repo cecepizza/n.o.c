@@ -14,27 +14,34 @@ class Roamer {
 
   draw() {
     this.p5.stroke(0);
-    this.p5.strokeWeight(2); // Increase point size to 5 pixels
+    this.p5.strokeWeight(2);
     this.p5.point(this.x, this.y);
   }
 
-  wanderer() {
-    const decide = this.p5.floor(this.p5.random(36));
-    if (decide >= 0 && decide < 6) {
+  /** four directional movements
+   wanderer() {
+    const choice = floor(random(4));
+    if (choice == 0) {
       this.x++;
-    } else if (decide >= 6 && decide < 12) {
+    } else if (choice == 1) {
       this.x--;
-    } else if (decide >= 12 && decide < 18) {
-      this.y++;
-    } else if (decide >= 18 && decide < 24) {
-      this.y--;
-    } else if (decide >= 24 && decide < 30) {
-      this.x++;
+    } else if (choice == 2) {
       this.y++;
     } else {
-      this.x--;
       this.y--;
     }
+}
+   */
+
+  /** eight directional movements + stay still*/
+  wanderer() {
+    // Yields –1, 0, or 1
+    // Left (xstep = -1), Right (xstep = 1), or Stay Still (xstep = 0)
+    let xstep = this.p5.floor(this.p5.random(3)) - 1; // Randomly generates -1, 0, or 1
+    // Up (ystep = -1), Down (ystep = 1), or Stay Still (ystep = 0)
+    let ystep = this.p5.floor(this.p5.random(3)) - 1;
+    this.x += xstep;
+    this.y += ystep;
   }
 }
 
