@@ -10,10 +10,11 @@ const ProbabilityDisplacement = () => {
       this.p5 = p5;
       this.x = p5.width / 2;
       this.y = p5.height / 2;
+      this.color = p5.color(0, 0, 0);
     }
 
     show() {
-      this.p5.stroke(0);
+      this.p5.stroke(this.color);
       this.p5.point(this.x, this.y);
     }
 
@@ -29,6 +30,17 @@ const ProbabilityDisplacement = () => {
       }
       this.x += xstep;
       this.y += ystep;
+
+      // Determine color based on random number
+      this.color = this.getColorBasedOnNumber(this.p5.random(1));
+    }
+
+    getColorBasedOnNumber(number) {
+      if (number < 0.5) {
+        return this.p5.color(255, 0, 0); // Red
+      } else {
+        return this.p5.color(0, 0, 255); // Blue
+      }
     }
   }
 // An algorithm for picking a random number based on monte carlo method
@@ -45,7 +57,7 @@ const ProbabilityDisplacement = () => {
   };
 
   const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(640, 240).parent(canvasParentRef);
+    p5.createCanvas(500, 200).parent(canvasParentRef);
     walker = new Walker(p5);
     p5.background(245);
   };
