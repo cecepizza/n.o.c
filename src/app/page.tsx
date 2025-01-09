@@ -6,13 +6,14 @@ import ProbabilityRoam from "./ProbabilityRoam";
 import PaintSplatter from "./NormalDistribution";
 import ProbabilityDisplacement from "./ProbabilityDisplacement";
 import PerlinNoiseWalker from "./PerlinNoiseWalker";
+import NoiseDetail from "./NoiseDetail";
 import "./styles.css";
 
 const containerStyle: React.CSSProperties = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "stretch",
-  height: "200vh",
+  height: "100vh",
   padding: "5px",
   boxSizing: "border-box",
   backgroundColor: "#e0e0e0",
@@ -48,9 +49,15 @@ const App: React.FC = () => {
           <ProbabilityDisplacement />
         </div>
       </div>
-      <div className="card">
-        <h2 style={titleStyle}>Normal Distribution</h2>
-        <PaintSplatter />
+      <div>
+        <div className="card">
+          <h2 style={titleStyle}>Normal Distribution</h2>
+          <PaintSplatter />
+        </div>
+        <div className="card">
+          <h2 style={titleStyle}>Noise Detail</h2>
+          <NoiseDetail />
+        </div>
       </div>
     </div>
   );

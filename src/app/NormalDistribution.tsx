@@ -142,7 +142,7 @@ const PaintSplatter: React.FC = () => {
         id="paint-splatter-container"
         style={{
           width: "320px",
-          height: "400px",
+          height: "250px",
           overflow: "hidden",
           position: "relative",
         }}
