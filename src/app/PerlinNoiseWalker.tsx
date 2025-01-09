@@ -12,6 +12,7 @@ class Walker {
   private x: number;
   private y: number;
   private p5: p5Types;
+  private colorOffset: number; // New property for color offset
 
   constructor(p5: p5Types) {
     this.p5 = p5;
@@ -19,6 +20,7 @@ class Walker {
     this.ty = 10000;
     this.x = 0;
     this.y = 0;
+    this.colorOffset = 20000; // Initialize color offset
   }
 
   step() {
@@ -32,10 +34,18 @@ class Walker {
   }
 
   show() {
+    // Use Perlin noise for color
+    const r = this.p5.map(this.p5.noise(this.colorOffset), 0, 1, 0, 255);
+    const g = this.p5.map(this.p5.noise(this.colorOffset + 1000), 0, 1, 0, 255);
+    const b = this.p5.map(this.p5.noise(this.colorOffset + 2000), 0, 1, 0, 255);
+
     this.p5.strokeWeight(0.05);
-    this.p5.fill(this.p5.random(255), this.p5.random(255), this.p5.random(255));
+    this.p5.fill(r, g, b);
     this.p5.stroke(0);
     this.p5.circle(this.x, this.y, 8);
+
+    // Increment color offset to change colors over time
+    this.colorOffset += 0.01;
   }
 }
 

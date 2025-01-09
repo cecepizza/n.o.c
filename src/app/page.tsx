@@ -3,16 +3,17 @@
 import React from "react";
 import RandomRoam from "./RandomRoam";
 import ProbabilityRoam from "./ProbabilityRoam";
-import PaintSplatter from "./PaintSplatter";
+import PaintSplatter from "./NormalDistribution";
 import ProbabilityDisplacement from "./ProbabilityDisplacement";
 import PerlinNoiseWalker from "./PerlinNoiseWalker";
+import NoiseDetail from "./NoiseDetail";
 import "./styles.css";
 
 const containerStyle: React.CSSProperties = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "stretch",
-  height: "50vh",
+  height: "100vh",
   padding: "5px",
   boxSizing: "border-box",
   backgroundColor: "#e0e0e0",
@@ -34,7 +35,7 @@ const App: React.FC = () => {
           <RandomRoam />
         </div>
         <div className="card">
-          <h2 style={titleStyle}>Perlin Noise Walker</h2>
+          <h2 style={titleStyle}>Perlin Noise</h2>
           <PerlinNoiseWalker />
         </div>
       </div>
@@ -48,9 +49,15 @@ const App: React.FC = () => {
           <ProbabilityDisplacement />
         </div>
       </div>
-      <div className="card">
-        <h2 style={titleStyle}>Paint Splatter</h2>
-        <PaintSplatter />
+      <div>
+        <div className="card">
+          <h2 style={titleStyle}>Normal Distribution</h2>
+          <PaintSplatter />
+        </div>
+        <div className="card">
+          <h2 style={titleStyle}>Noise Detail</h2>
+          <NoiseDetail />
+        </div>
       </div>
     </div>
   );
