@@ -40,7 +40,7 @@ const RandomRoam: React.FC = () => {
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(200, 200).parent(canvasParentRef);
     roam = new Roamer(p5);
-    p5.background(255);
+    p5.background(245);
   };
 
   const draw = (p5: p5Types) => {

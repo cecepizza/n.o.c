@@ -14,7 +14,7 @@ const PaintSplatter: React.FC = () => {
       let alphaSlider: p5.Element;
 
       p.setup = () => {
-        const canvas = p.createCanvas(300, 200);
+        const canvas = p.createCanvas(300, 150);
         canvas.parent("p5-canvas");
         p.colorMode(p.HSB);
         p.background(97);
@@ -25,6 +25,7 @@ const PaintSplatter: React.FC = () => {
         p.translate(p.width / 2, p.height / 2);
         p.scale(p.height / 2);
 
+        // random gaussian spread
         let x = p.randomGaussian(0, spreadSlider.value() as number);
         let y = p.randomGaussian(0, spreadSlider.value() as number);
         let size = p.randomGaussian(
@@ -35,6 +36,7 @@ const PaintSplatter: React.FC = () => {
           size = 0.001;
         }
 
+        // random gaussian hue
         let paintHue = p.randomGaussian(
           baseHueSlider.value() as number,
           huespSlider.value() as number
@@ -61,7 +63,8 @@ const PaintSplatter: React.FC = () => {
       const styleSlider = (slider: p5.Element) => {
         slider.style("height", "1px");
         slider.style("background-color", "#ddd");
-        slider.style("border-radius", "5px");
+        slider.style("border-radius", "15px");
+        slider.addClass("custom-slider");
       };
 
       const createControls = (ypos: number) => {
@@ -71,7 +74,7 @@ const PaintSplatter: React.FC = () => {
         controlsContainer.style("flex-wrap", "wrap");
         controlsContainer.style("justify-content", "center");
         controlsContainer.style("align-items", "center");
-        controlsContainer.style("gap", "10px");
+        controlsContainer.style("gap", "15px");
         controlsContainer.style("position", "relative");
 
         const createSliderWithLabel = (
@@ -85,16 +88,16 @@ const PaintSplatter: React.FC = () => {
           container.style("display", "flex");
           container.style("flex-direction", "column");
           container.style("align-items", "center");
-          container.style("width", "100px");
+          container.style("width", "80px");
 
           const title = p.createP(label);
           title.style("margin", "0");
-          title.style("font-size", "12px");
+          title.style("font-size", "10px");
           title.parent(container);
 
           const slider = p.createSlider(min, max, value, step);
           slider.parent(container);
-          slider.size(80);
+          slider.size(60);
           styleSlider(slider);
 
           container.parent(controlsContainer);
@@ -102,7 +105,7 @@ const PaintSplatter: React.FC = () => {
         };
 
         spreadSlider = createSliderWithLabel("Spread", 0, 0.75, 0.25, 0);
-        sizeSlider = createSliderWithLabel("Size", 5, 50, 20, 0);
+        sizeSlider = createSliderWithLabel("Size", 1, 50, 2, 0);
         sizespSlider = createSliderWithLabel("Size Spread", 0, 0.1, 0.01, 0);
         baseHueSlider = createSliderWithLabel("Base Hue", 0, 360, 250, 0);
         huespSlider = createSliderWithLabel("Hue Spread", 0, 100, 15, 0);
@@ -113,11 +116,11 @@ const PaintSplatter: React.FC = () => {
         clearButton.style("background-color", "#ffe6f2");
         clearButton.style("border", "2px solid #ff99cc");
         clearButton.style("border-radius", "5px");
-        clearButton.style("padding", "0px 10px");
+        clearButton.style("padding", "2px 10px");
         clearButton.style("font-family", "Arial, sans-serif");
         clearButton.style("cursor", "pointer");
         clearButton.style("position", "absolute");
-        clearButton.style("bottom", "210px");
+        clearButton.style("bottom", "160px");
         clearButton.style("right", "15px");
         clearButton.mousePressed(() => p.background(97));
       };
