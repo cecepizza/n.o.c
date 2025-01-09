@@ -4,6 +4,7 @@ import React from "react";
 import RandomRoam from "./RandomRoam";
 import ProbabilityRoam from "./ProbabilityRoam";
 import PaintSplatter from "./PaintSplatter";
+import ProbabilityDisplacement from "./ProbabilityDisplacement";
 import "./styles.css";
 
 const containerStyle: React.CSSProperties = {
@@ -30,9 +31,15 @@ const App: React.FC = () => {
         <h2 style={titleStyle}>Random Roam</h2>
         <RandomRoam />
       </div>
-      <div className="card">
-        <h2 style={titleStyle}>Probability Roam</h2>
-        <ProbabilityRoam />
+      <div>
+        <div className="card">
+          <h2 style={titleStyle}>Probability Roam</h2>
+          <ProbabilityRoam />
+        </div>
+        <div className="card">
+          <h2 style={titleStyle}>Probability Displacement</h2>
+          <ProbabilityDisplacement />
+        </div>
       </div>
       <div className="card">
         <h2 style={titleStyle}>Paint Splatter</h2>
