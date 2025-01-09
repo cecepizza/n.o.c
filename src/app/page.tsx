@@ -5,6 +5,7 @@ import RandomRoam from "./RandomRoam";
 import ProbabilityRoam from "./ProbabilityRoam";
 import PaintSplatter from "./PaintSplatter";
 import ProbabilityDisplacement from "./ProbabilityDisplacement";
+import PerlinNoiseWalker from "./PerlinNoiseWalker";
 import "./styles.css";
 
 const containerStyle: React.CSSProperties = {
@@ -27,9 +28,15 @@ const titleStyle: React.CSSProperties = {
 const App: React.FC = () => {
   return (
     <div style={containerStyle}>
-      <div className="card">
-        <h2 style={titleStyle}>Random Roam</h2>
-        <RandomRoam />
+      <div>
+        <div className="card">
+          <h2 style={titleStyle}>Random Roam</h2>
+          <RandomRoam />
+        </div>
+        <div className="card">
+          <h2 style={titleStyle}>Perlin Noise Walker</h2>
+          <PerlinNoiseWalker />
+        </div>
       </div>
       <div>
         <div className="card">
